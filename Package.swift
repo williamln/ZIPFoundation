@@ -9,7 +9,7 @@ let targets: [Target] = [
 ]
 #elseif os(Windows)
 let targets: [Target] = [
-    .systemLibrary(name: "CZLib", pkgConfig: "zlib", path: ProcessInfo.processInfo.environment["ZLIB_PATH"] ?? ""),
+    .systemLibrary(name: "CZLib", path: ProcessInfo.processInfo.environment["ZLIB_PATH"] ?? ""),
     .target(name: "ZIPFoundation", dependencies: ["CZLib"], cSettings: [.define("_GNU_SOURCE", to: "1")]),
     .testTarget(name: "ZIPFoundationTests", dependencies: ["ZIPFoundation"])
 ]
